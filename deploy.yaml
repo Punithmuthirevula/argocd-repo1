@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: flaskapp
-        image: puneethuserdoc/flaskapp_puneeth:latest
+        image: puneethuserdoc/my-java-webapp:latest
         ports:
         - containerPort: 5000
         # env:

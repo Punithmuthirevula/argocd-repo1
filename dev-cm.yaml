@@ -3,7 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: dev-cm
-# namespace: default
+  namespace: default
 data:
   DB_NAME: "sk-dev.db.com:1234"
   APP_ENV: "Dev"

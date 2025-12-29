@@ -1,0 +1,10 @@
+# Sample ConfigMap for dev environment
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dev-uat-cm
+  namespace: default
+data:
+  DB_NAME: "sk-uat.db.com:1234"
+  APP_ENV: "UAT"
+  # LOG_LEVEL: "DEBUG"

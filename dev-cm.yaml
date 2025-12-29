@@ -1,0 +1,10 @@
+# Sample ConfigMap for dev environment
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dev-cm
+# namespace: default
+data:
+  DB_NAME: "sk-dev.db.com:1234"
+  APP_ENV: "Dev"
+  # LOG_LEVEL: "DEBUG"

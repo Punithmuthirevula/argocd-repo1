@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flaskapp-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flaskapp
+  template:
+    metadata:
+      labels:
+        app: flaskapp
+    spec:
+      containers:
+      - name: flaskapp
+        image: puneethuserdoc/flaskapp_puneeth:latest
+        ports:
+        - containerPort: 5000
+        # env:
+        # - name: DB_NAME
+        #   value: "your_db_name"
+        # - name: APP_ENV
+        #   value: "your_app_env"
+        # env:
+        #   # Define the environment variable as er our requirements individual evn names among all
+        #   - name: DB_NAME
+        #     valueFrom:
+        #       configMapKeyRef:
+        #         name: dev-cm         
+        #         key: DB_NAME 
+        #   - name: APP_ENV
+        #     valueFrom:
+        #       configMapKeyRef:
+        #         name: dev-cm
+        #         key: APP_ENV
+  # entire configmap is being referred here insted of individual env names
+        # envFrom:
+        #   - configMapRef:
+        #       name: dev-cm
+
+        envFrom:
+          - secretRef:
+              name: my-secret
+---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: flaskapp-service
+# spec:
+#   type: LoadBalancer
+#   selector:
+#     app: flaskapp
+#   ports:
+#     - protocol: TCP
+#       port: 5000
+#       targetPort: 5000
+      # nodePort: 30007
